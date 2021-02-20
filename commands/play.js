@@ -1,3 +1,4 @@
+const ytdl_discord = require("discord-ytdl-core");
 const ytdl = require("ytdl-core");
 
 module.exports = {
@@ -80,7 +81,7 @@ module.exports = {
         this.play(message, serverQueue.songs[0]);
       })
       .on("error", error => console.error(error));
-    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+    // dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
     serverQueue.textChannel.send(`Start playing: **${song.title}**`); // can change this to embed message
   }
 };
