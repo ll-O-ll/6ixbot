@@ -8,7 +8,6 @@ module.exports = {
       const args = message.content.split(" ");
       const queue = message.client.queue;
       const serverQueue = message.client.queue.get(message.guild.id);
-
       const voiceChannel = message.member.voice.channel;
       if (!voiceChannel)
         return message.channel.send(
@@ -24,6 +23,7 @@ module.exports = {
       const songInfo = await ytdl.getInfo(args[1]);
       const song = {
         title: songInfo.videoDetails.title,
+        duration: songInfo.videoDetails.duration,
         url: songInfo.videoDetails.video_url
       };
 
@@ -34,7 +34,7 @@ module.exports = {
           connection: null,
           songs: [],
           volume: 5,
-          playing: true
+          playing: true,
         };
 
         queue.set(message.guild.id, queueContruct);
@@ -81,6 +81,6 @@ module.exports = {
       })
       .on("error", error => console.error(error));
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
-    serverQueue.textChannel.send(`Start playing: **${song.title}**`);
+    serverQueue.textChannel.send(`Start playing: **${song.title}**`); // can change this to embed message
   }
 };
