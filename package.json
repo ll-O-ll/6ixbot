@@ -20,6 +20,8 @@
     "discord.js": "^12.5.1",
     "ffmpeg": "0.0.4",
     "fluent-ffmpeg": "^2.1.2",
-    "ytdl-core": "^4.5.0"
+    "ytdl-core": "^4.5.0",
+    "ytpl": "^2.0.5",
+    "ytsr": "^3.3.1"
   }
 }

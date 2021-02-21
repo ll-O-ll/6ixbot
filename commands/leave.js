@@ -1,8 +1,8 @@
 module.exports = {
 	name: 'leave',
-	description: 'Disconnects the music bot',
+	description: 'Disconnects the bot from the audio channel',
 	execute(message) {
-		const client = message.client;
-        client.destroy();    
+		const serverQueue = message.client.queue.get(message.guild.id);
+        serverQueue.connection.dispatcher.end();  
     },
 };
